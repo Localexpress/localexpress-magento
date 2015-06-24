@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<config>
+   <sections>
+    <carriers>
+        <groups>
+            <localexpress_customrate translate="label" module="shipping">
+                <label>Localexpress Shipping</label>
+                <frontend_type>text</frontend_type>
+                <sort_order>1</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+                   <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Carrier Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <name translate="label">
+                            <label>Method Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name>
+                        <service_name translate="label">
+                            <label>Service Name</label>
+                            <comment>service option: Localexpress (same day)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </service_name>
+                        <api_key translate="label">
+                            <label>API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </api_key>
+                        <server translate="label">
+                            <label>Server URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </server>
+                        <geo_server translate="label">
+                            <label>Geo Server</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </geo_server>
+                        <address_server translate="label">
+                            <label>Address Server</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </address_server>
+                        <test translate="label">
+                            <label>Test setup</label>
+                            <comment>The latest status of the communication to the Localexpress server (updated after save)</comment>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>localexpress_shipping/config_test</frontend_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </test>
+                        <sallowspecific translate="label">
+                            <label>Ship to applicable countries</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <frontend_class>shipping-applicable-country</frontend_class>
+                            <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sallowspecific>
+                        <specificcountry translate="label">
+                            <label>Ship to Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>91</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <showmethod translate="label">
+                            <label>Show method if not applicable</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>92</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </showmethod>
+                        <!-- origin defaults -->
+                        <origin_store_name translate="label">
+                            <label>Store name (origin)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>101</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </origin_store_name>
+                        <origin_street translate="label">
+                            <label>Thoroughfare / Street(origin)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>102</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </origin_street>
+                        <origin_subthoroughfare translate="label">
+                            <label>Sub Thoroughfare / housenumber (origin)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>103</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </origin_subthoroughfare>
+                        <origin_city translate="label">
+                            <label>City (origin)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>104</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </origin_city>
+                        <origin_zip translate="label">
+                            <label>ZIP (origin)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>105</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </origin_zip>
+                        <origin_country translate="label">
+                            <label>Country (origin)</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>106</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </origin_country>
+                        <category_only translate="label">
+                            <label>Ship to specific categories only (comma seperate)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>107</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_only>
+                        <attributes_only translate="label">
+                            <label>Ship to specific attributes only (comma seperate)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>107</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </attributes_only>
+                    </fields>
+                </localexpress_customrate>
+            </groups>
+        </carriers>
+        <design>
+            <groups>
+                <admin translate="label">
+                    <label>Admin Theme</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <fields>
+                        <theme translate="label comment">
+                            <label>Admin theme name</label>
+                            <comment>Override default admin theme.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </theme>
+                    </fields>
+                </admin>
+            </groups>
+        </design>
+    </sections>
+</config>

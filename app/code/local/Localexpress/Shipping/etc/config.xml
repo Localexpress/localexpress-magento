@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Localexpress_Shipping>
+      <version>0.2.4</version>
+    </Localexpress_Shipping>
+  </modules>
+  <global>
+    <models>
+      <localexpress_shipping>
+        <class>Localexpress_Shipping_Model</class>
+      </localexpress_shipping>
+    </models>
+    <helpers>
+      <localexpress_shipping>
+        <class>Localexpress_Shipping_Helper</class>
+      </localexpress_shipping>
+    </helpers>
+    <blocks>
+      <localexpress_shipping>
+        <class>Localexpress_Shipping_Block</class>
+      </localexpress_shipping>
+    </blocks>
+    <events>
+
+      <!-- observers -->
+      <adminhtml_controller_action_predispatch_start>
+        <observers>
+          <!-- show html comments on backend -->
+          <localexpress_shipping>
+            <type>singleton</type>
+            <class>localexpress_shipping/observer</class>
+            <method>overrideTheme</method>
+          </localexpress_shipping>
+        </observers>
+      </adminhtml_controller_action_predispatch_start>      
+
+      <!-- custom rates -->
+      <sales_model_service_quote_submit_success>
+        <observers>
+          <localexpress_shipping>
+            <class>localexpress_shipping/observer</class>
+            <method>salesModelServiceQuoteSubmitSuccess</method>
+          </localexpress_shipping>
+        </observers>
+      </sales_model_service_quote_submit_success>
+
+      <!-- payment successful -->
+      <sales_order_save_after>
+        <observers>
+          <localexpress_shipping>
+            <class>localexpress_shipping/observer</class>
+            <method>salesOrderSaveAfter</method>
+          </localexpress_shipping>
+        </observers>
+      </sales_order_save_after>
+    </events>
+
+  </global>
+  <default>
+    <carriers>
+      <localexpress_customrate>
+        <active>1</active>
+        <model>localexpress_shipping/carrier_customrate</model>
+        <title>Localexpress Shipping</title>
+        <name>Localexpress Shipping</name>
+        <service_name>Localexpress (same day)</service_name>
+        <server>https://api-qa.localexpress.nl/</server>
+        <specificerrmsg>Something went wrong!</specificerrmsg>
+      </localexpress_customrate>
+    </carriers>
+    <design>
+      <admin>
+        <theme>localexpress</theme>
+      </admin>
+    </design>
+  </default>
+
+  <frontend>
+      <routers>
+        <localexpress>
+          <use>standard</use>
+          <args>
+            <module>Localexpress_Shipping</module>
+            <frontName>localexpress</frontName>
+          </args>
+        </localexpress>
+      </routers>
+    </frontend>
+
+</config>
